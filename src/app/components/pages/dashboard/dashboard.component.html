@@ -1,0 +1,28 @@
+
+<mat-card >
+  <mat-card-title>Actions Buttons
+ 
+  <mat-card-actions style="margin-top: -25px;" align="end">
+    <button mat-button>Like</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card-title>
+</mat-card>
+
+<div >
+  <mat-grid-list cols="2" color="primary"  rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title class="title-button">
+            <button mat-flat-button color="accent"><mat-icon >add</mat-icon>Add Account</button>
+            <button mat-flat-button color="primary"><mat-icon >print</mat-icon>Add Account</button>  
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Card Content Here</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

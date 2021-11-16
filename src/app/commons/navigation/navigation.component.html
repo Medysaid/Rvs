@@ -1,0 +1,102 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav style="width: 255px;" #drawer class="sidenav sidebar-dark-primary" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="height: 85px;background-color: whitesmoke;" class="toolbar">
+      <div class="sidebar-heading">
+        <img src="../../../assets/image/logo.png" width="50" height="60" class="m-2">
+        
+      </div>
+    
+    </mat-toolbar>
+    <mat-nav-list>
+      
+       
+        
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        <li class="nav-item">
+          <a routerLink="dash" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              
+            </p>
+          </a>
+          
+        </li>
+        <!-- <li class="nav-item">
+          <a routerLink="account" class="nav-link">
+            <i class="nav-icon fas fa-th"></i>
+            <p>
+              Widgets
+              <span class="right badge badge-danger">New</span>
+            </p>
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              Accounts
+              <i class="fas fa-angle-left right"></i>
+              <!-- <span class="badge badge-info right">6</span> -->
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="account" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Chart of Account</p>
+              </a>
+            </li> 
+          </ul>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="account" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Items list</p>
+              </a>
+            </li> 
+          </ul>
+          </li>
+
+       
+        </ul>
+     
+        
+           
+      
+       
+            
+       
+    
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <mat-toolbar color="primary"  class="navbar-white navbar-light"   style="background-color: rgb(208, 230, 250); height: 45px;" >
+      <button
+      style="margin-left :-15px; ;"
+      class="btn-success"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        >
+        
+        <mat-icon aria-label="Side nav toggle icon" >menu</mat-icon>
+      </button>
+      <span style="margin-left: 25px;color: rgb(26, 24, 24);">{{toggler.brand}} </span>
+      <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before">
+        <button mat-menu-item>Expand</button>
+        <button mat-menu-item>Remove</button>
+      </mat-menu>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
